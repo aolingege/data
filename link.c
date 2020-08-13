@@ -95,3 +95,31 @@ void setData(llist list, int data, int pos)
         }
     }
 }
+
+void deleteList(llist list)
+{
+    lnode tempNode = list;
+    while (list->next)
+    {
+        tempNode = list;
+        list = list->next;
+        free(tempNode);
+    }
+    free(list);
+}
+
+void show(llist list)
+{
+    lnode tempNode = list;
+    while (tempNode->next != NULL)
+    {
+        printf("pos:%d,data:%d\n", tempNode->pos, tempNode->data);
+        tempNode = tempNode->next;
+    }
+    printf("pos:%d,data:%d\n", tempNode->pos, tempNode->data);
+}
+
+int main()
+{
+    return 0;
+}
