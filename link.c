@@ -67,3 +67,31 @@ void delete (llist list, int pos)
         }
     }
 }
+
+void setData(llist list, int data, int pos)
+{
+    if (list->pos == pos)
+    {
+        list->data = data;
+    }
+    else
+    {
+        lnode tempNode = list->next;
+        while (tempNode->pos != pos && tempNode->next != NULL)
+        {
+            tempNode = tempNode->next;
+        }
+        if (tempNode->next != NULL)
+        {
+            tempNode->data = data;
+        }
+        else if (tempNode->pos == pos)
+        {
+            tempNode->data = data;
+        }
+        else
+        {
+            printf("未找到该节点");
+        }
+    }
+}
